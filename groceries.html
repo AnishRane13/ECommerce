@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <title>Organic Shop - Groceries</title>
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="font-belgrano-regular overflow-hidden">
+
+<header class="bg-white py-4 px-6 flex justify-between items-center">
+    <div class="flex items-center">
+        <a href="#">
+            <img src="https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2019/06/organic-store-logo5.svg" alt="Organic Shop" class="h-12">
+        </a>
+    </div>
+    <nav class="hidden md:flex space-x-6">
+        <a href="#" class="text-gray-800 hover:text-green-500">Everything</a>
+        <a href="#" class="text-gray-800 hover:text-green-500">Groceries</a>
+        <a href="#" class="text-gray-800 hover:text-green-500">Juice</a>
+        <a href="#" class="text-gray-800 hover:text-green-500">About</a>
+        <a href="#" class="text-gray-800 hover:text-green-500">Contact</a>
+    </nav>
+    <div class="md:hidden">
+        <button id="hamburger-btn" class="text-gray-800 hover:text-green-500 focus:outline-none">
+            <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden fixed top-0 left-0 w-full h-full bg-white z-50 p-6">
+        <div class="flex justify-between items-center mb-6">
+            <div></div>
+            <button id="close-btn" class="text-gray-800 hover:text-red-500 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Everything</a>
+        <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Groceries</a>
+        <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Juice</a>
+        <a href="#" class="block text-gray-800 hover:text-green-500 py-2">About</a>
+        <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Contact</a>
+    </div>
+</header>
+
+<div class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-4 md:mb-0">Groceries</h2>
+            <div class="relative">
+                <input type="text" class="border border-gray-300 rounded-md py-2 px-4 pr-10 w-full md:w-64" placeholder="Search groceries">
+                <svg class="h-5 w-5 text-gray-400 absolute top-1/2 right-3 transform -translate-y-1/2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <img src="https://via.placeholder.com/300x200" alt="Grocery Item" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-semibold text-gray-800">Grocery Item</h3>
+                <p class="text-gray-600">$4.99</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <img src="https://via.placeholder.com/300x200" alt="Grocery Item" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-semibold text-gray-800">Grocery Item</h3>
+                <p class="text-gray-600">$4.99</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <img src="https://via.placeholder.com/300x200" alt="Grocery Item" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-semibold text-gray-800">Grocery Item</h3>
+                <p class="text-gray-600">$4.99</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <img src="https://via.placeholder.com/300x200" alt="Grocery Item" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-semibold text-gray-800">Grocery Item</h3>
+                <p class="text-gray-600">$4.99</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <img src="https://via.placeholder.com/300x200" alt="Grocery Item" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-semibold text-gray-800">Grocery Item</h3>
+                <p class="text-gray-600">$4.99</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <img src="https://via.placeholder.com/300x200" alt="Grocery Item" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-semibold text-gray-800">Grocery Item</h3>
+                <p class="text-gray-600">$4.99</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <img src="https://via.placeholder.com/300x200" alt="Grocery Item" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-semibold text-gray-800">Grocery Item</h3>
+                <p class="text-gray-600">$4.99</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <img src="https://via.placeholder.com/300x200" alt="Grocery Item" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-semibold text-gray-800">Grocery Item</h3>
+                <p class="text-gray-600">$4.99</p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<script>
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeBtn = document.getElementById('close-btn');
+
+    hamburgerBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+    });
+</script>
+
+</body>
+</html>

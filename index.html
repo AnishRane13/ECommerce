@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belgrano&display=swap" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <title>Organic Shop</title>
     <style>
         body {
@@ -19,6 +19,44 @@
     </style>
 </head>
 <body class="font-belgrano-regular">
+
+<header class="bg-white py-4 px-6 flex justify-between items-center">
+    <div class="flex items-center">
+        <a href="#">
+            <img src="https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2019/06/organic-store-logo5.svg" alt="Organic Shop" class="h-12">
+        </a>
+    </div>
+    <nav class="hidden md:flex space-x-6">
+        <a href="/everything.html" class="text-gray-800 hover:text-green-500">Everything</a>
+        <a href="./groceries.html" class="text-gray-800 hover:text-green-500">Groceries</a>
+        <a href="/juice.html" class="text-gray-800 hover:text-green-500">Juice</a>
+        <a href="/about.html" class="text-gray-800 hover:text-green-500">About</a>
+        <a href="/contact.html" class="text-gray-800 hover:text-green-500">Contact</a>
+    </nav>
+
+    <div class="md:hidden">
+        <button id="hamburger-btn" class="text-gray-800 hover:text-green-500 focus:outline-none">
+            <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden fixed top-0 left-0 w-full h-full bg-white z-50 p-6">
+        <div class="flex justify-between items-center mb-6">
+            <div></div>
+            <button id="close-btn" class="text-gray-800 hover:text-red-500 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Everything</a>
+        <a href="./groceries.html" class="block text-gray-800 hover:text-green-500 py-2">Groceries</a>
+        <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Juice</a>
+        <a href="#" class="block text-gray-800 hover:text-green-500 py-2">About</a>
+        <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Contact</a>
+    </div>
+</header>
 
 <!-- HERO BANNER -->
 <div class="hero-banner flex flex-col justify-center items-center min-h-100v bg-gradient-to-b from-gray-100 to-gray-700">
@@ -93,6 +131,20 @@
     </div>
 </div>
 <!-- Trending Product Section Ends -->
+
+<script>
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeBtn = document.getElementById('close-btn');
+
+    hamburgerBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+    });
+</script>
 
 </body>
 </html>
