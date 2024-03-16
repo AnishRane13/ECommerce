@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Importing the font from Google Fonts CDN -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,95 +15,149 @@
         body {
             font-family: 'Playfair Display', serif;
         }
+
+        /* Animation for the header logo */
+        /* .logo-animation {
+            animation: pulse 2s infinite;
+        } */
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Animation for the form inputs */
+        .input-animation {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .input-animation:focus {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(0, 128, 0, 0.5);
+        }
+
+        /* Animation for the "Place Order" button */
+        .button-animation {
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button-animation::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .button-animation:hover::before {
+            width: 200%;
+            height: 200%;
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-green-100 to-teal-200">
 
     <header class="bg-white py-4 px-6 flex justify-between items-center">
-        <div class="flex items-center">
+        <div class="flex items-center logo-animation">
             <a href="./index.html">
                 <img src="https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2019/06/organic-store-logo5.svg" alt="Organic Shop" class="h-12">
             </a>
         </div>
         <nav class="hidden md:flex space-x-6">
-            <a href="/everything.html" class="text-gray-800 hover:text-green-500">Everything</a>
-            <a href="./groceries.html" class="text-gray-800 hover:text-green-500">Groceries</a>
-            <a href="/juice.html" class="text-gray-800 hover:text-green-500">Juice</a>
-            <a href="/about.html" class="text-gray-800 hover:text-green-500">About</a>
-            <a href="/contact.html" class="text-gray-800 hover:text-green-500">Contact</a>
+            <a href="/everything.html" class="text-gray-800 hover:text-green-500 transition-colors duration-300">Everything</a>
+            <a href="./groceries.html" class="text-gray-800 hover:text-green-500 transition-colors duration-300">Groceries</a>
+            <a href="/juice.html" class="text-gray-800 hover:text-green-500 transition-colors duration-300">Juice</a>
+            <a href="/about.html" class="text-gray-800 hover:text-green-500 transition-colors duration-300">About</a>
+            <a href="/contact.html" class="text-gray-800 hover:text-green-500 transition-colors duration-300">Contact</a>
         </nav>
     
         <div class="md:hidden">
-            <button id="hamburger-btn" class="text-gray-800 hover:text-green-500 focus:outline-none">
+            <button id="hamburger-btn" class="text-gray-800 hover:text-green-500 focus:outline-none transition-colors duration-300">
                 <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                     <path d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden fixed top-0 left-0 w-full h-2/5 bg-white z-50 p-6">
+        <div id="mobile-menu" class="md:hidden hidden fixed top-0 left-0 w-full h-2/5 bg-white z-50 p-6 transition-all duration-500 ease-in-out">
             <div class="flex justify-between items-center mb-6">
                 <div></div>
-                <button id="close-btn" class="text-gray-800 hover:text-red-500 focus:outline-none">
+                <button id="close-btn" class="text-gray-800 hover:text-red-500 focus:outline-none transition-colors duration-300">
                     <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
-            <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Everything</a>
-            <a href="./groceries.html" class="block text-gray-800 hover:text-green-500 py-2">Groceries</a>
-            <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Juice</a>
-            <a href="#" class="block text-gray-800 hover:text-green-500 py-2">About</a>
-            <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Contact</a>
+            <a href="#" class="block text-gray-800 hover:text-green-500 py-2 transition-colors duration-300">Everything</a>
+            <a href="./groceries.html" class="block text-gray-800 hover:text-green-500 py-2 transition-colors duration-300">Groceries</a>
+            <a href="#" class="block text-gray-800 hover:text-green-500 py-2 transition-colors duration-300">Juice</a>
+            <a href="#" class="block text-gray-800 hover:text-green-500 py-2 transition-colors duration-300">About</a>
+            <a href="#" class="block text-gray-800 hover:text-green-500 py-2 transition-colors duration-300">Contact</a>
         </div>
     </header>
 
     <div class="max-w-4xl mx-auto py-12">
-        <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Checkout</h2>
+        <h2 class="text-3xl font-bold mb-6 text-center text-gray-800 ">Checkout</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
                 <h3 class="text-xl font-semibold mb-4 text-gray-800 ml-4">Billing Details</h3>
-                <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl">
                     <div class="mb-4">
                         <label class="block text-gray-700 font-semibold mb-2" for="firstName">First Name</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500" id="firstName" type="text" placeholder="Enter your first name">
+                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="firstName" type="text" placeholder="Enter your first name">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 font-semibold mb-2" for="lastName">Last Name</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500" id="lastName" type="text" placeholder="Enter your last name">
+                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="lastName" type="text" placeholder="Enter your last name">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 font-semibold mb-2" for="country">Country</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500" id="country" type="text" placeholder="Enter your country">
+                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="country" type="text" placeholder="Enter your country">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 font-semibold mb-2" for="streetAddress">Street Address</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500" id="streetAddress" type="text" placeholder="Enter your street address">
+                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="streetAddress" type="text" placeholder="Enter your street address">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 font-semibold mb-2" for="city">Town/City</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500" id="city" type="text" placeholder="Enter your city">
+                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="city" type="text" placeholder="Enter your city">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 font-semibold mb-2" for="state">State</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500" id="state" type="text" placeholder="Enter your state">
+                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="state" type="text" placeholder="Enter your state">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 font-semibold mb-2" for="zipCode">Pin Code</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500" id="zipCode" type="text" placeholder="Enter your pin code">
+                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="zipCode" type="text" placeholder="Enter your pin code">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 font-semibold mb-2" for="phone">Phone</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500" id="phone" type="tel" placeholder="Enter your phone number">
+                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="phone" type="tel" placeholder="Enter your phone number">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 font-semibold mb-2" for="email">Email Address</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500" id="email" type="email" placeholder="Enter your email address">
+                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="email" type="email" placeholder="Enter your email address">
                     </div>
                 </div>
             </div>
             <div>
                 <h3 class="text-xl font-semibold mb-4 text-gray-800 ml-4">Your Order</h3>
-                <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl">
                     <table class="w-full">
                         <thead>
                             <tr>
@@ -131,15 +184,15 @@
                     </table>
                     <div class="mt-6">
                         <div class="flex items-center mb-4">
-                            <input id="cod" type="radio" name="paymentMethod" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                            <input id="cod" type="radio" name="paymentMethod" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded transition-all duration-300 hover:scale-110">
                             <label for="cod" class="ml-2 text-gray-700 font-semibold">Cash on Delivery</label>
                         </div>
                         <div class="flex items-center">
-                            <input id="online" type="radio" name="paymentMethod" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                            <input id="online" type="radio" name="paymentMethod" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded transition-all duration-300 hover:scale-110">
                             <label for="online" class="ml-2 text-gray-700 font-semibold">Online Payment</label>
                         </div>
                     </div>
-                    <button class="bg-green-600 text-white py-3 px-6 rounded-lg mt-6 hover:bg-green-700 transition-colors duration-300 font-semibold">Place Order</button>
+                    <button class="bg-green-600 text-white py-3 px-6 rounded-lg mt-6 hover:bg-green-700 transition-colors duration-300 font-semibold button-animation">Place Order</button>
                 </div>
             </div>
         </div>
