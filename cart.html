@@ -117,8 +117,19 @@
         </div>
     </main>
 
-    <footer class="bg-gray-200 py-4">
-        <!-- Add your footer content here -->
-    </footer>
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('close-btn');
+    
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+    
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    </script>
+    
 </body>
 </html>
