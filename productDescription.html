@@ -60,7 +60,6 @@
             <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Contact</a>
         </div>
     </header>
-    
 
     <main class="container mx-auto py-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -68,18 +67,13 @@
                 <img src="./coffee.png" alt="Product Image" class="w-4/5 rounded-lg max-image-height mx-auto">
             </div>
             <div class="space-y-4 px-4">
-                <h1 class="text-3xl font-bold">Product Name</h1>
-                <p class="text-gray-700">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec ultricies lacinia,
-                    nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.
-                </p>
-                <p class="text-2xl font-semibold">$29.99</p>
+                <h1 id="product-name" class="text-3xl font-bold"></h1>
+                <p id="product-description" class="text-gray-700"></p>
+                <p id="product-price" class="text-2xl font-semibold"></p>
                 <div class="flex items-center">
-                    <a href="./cart.html">
-                    <button class="bg-green-500 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring focus:ring-purple-300">
+                    <button id="add-to-cart-btn" class="bg-green-500 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring focus:ring-purple-300">
                         Add to Cart
                     </button>
-                </a>
                     <div class="ml-4">
                         <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-400">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -93,7 +87,7 @@
 
         <div class="my-8 px-4">
             <h2 class="text-2xl font-bold mb-4">Customer Reviews</h2>
-            <div class="bg-gray-100 rounded-lg p-6 space-y-4 -pl-6">
+            <div class="bg-gray-100 rounded-lg p-6 space-y-4">
                 <div class="flex items-center">
                     <div class="w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
                     <div>
@@ -109,18 +103,58 @@
         </div>
     </main>
 
-   <Script>
-     const hamburgerBtn = document.getElementById('hamburger-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeBtn = document.getElementById('close-btn');
+    <script>
+        // Add to Cart button event listener
+        document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+            // Get product details from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const productName = urlParams.get('name');
+            const productPrice = urlParams.get('price');
 
-        hamburgerBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
+            // Construct product object
+            const product = {
+                name: decodeURIComponent(productName),
+                price: decodeURIComponent(productPrice),
+                quantity: 1  // You can adjust this if needed
+            };
+
+            // Check if cart exists in local storage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Add product to cart
+            cart.push(product);
+
+            // Update cart in local storage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Redirect to shopping cart page
+            window.location.href = './cart.html';
         });
 
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-        });
-   </Script>
+
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeBtn = document.getElementById('close-btn');
+
+    hamburgerBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+    });
+
+        // Get the product data from the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const productName = urlParams.get('name');
+        const productPrice = urlParams.get('price');
+        const productDescription = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.';
+
+        // Update the product details on the page
+        document.getElementById('product-name').textContent = decodeURIComponent(productName);
+        document.getElementById('product-price').textContent = `$${decodeURIComponent(productPrice)}`;
+        document.getElementById('product-description').textContent = productDescription;
+    </script>
 </body>
 </html>
+

@@ -10,132 +10,219 @@
         body {
             font-family: 'Playfair Display', serif;
         }
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+        }
+        .container {
+            padding-top: 2rem;
+        }
+        .cart-item {
+            border: 1px solid #dbe5eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            background-color: #ffffff;
+        }
+        .cart-item h2 {
+            color: #333333;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .cart-item p {
+            color: #6b7280;
+            font-size: 1rem;
+        }
+        .remove-btn {
+            background-color: #f87171;
+            color: #ffffff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .remove-btn:hover {
+            background-color: #ef4444;
+        }
+        .empty-cart-message {
+            color: #6b7280;
+            font-size: 1.25rem;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <header class="bg-white py-4 px-6 flex justify-between items-center">
-        <div class="flex items-center">
-            <a href="./index.html">
-                <img src="https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2019/06/organic-store-logo5.svg" alt="Organic Shop" class="h-12">
+<header class="bg-white py-4 px-6 flex justify-between items-center">
+    <div class="flex items-center">
+        <a href="./index.html">
+            <img src="https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2019/06/organic-store-logo5.svg" alt="Organic Shop" class="h-12">
+        </a>
+    </div>
+    <div class="flex items-center">
+        <div class="md:hidden flex items-center">
+            <a href="./cart.html" class="text-gray-800 hover:text-green-500 mr-4 relative">
+                <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
             </a>
+            <button id="hamburger-btn" class="text-gray-800 hover:text-green-500 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
-        <div class="flex items-center">
-            <div class="md:hidden flex items-center">
-                <a href="./cart.html" class="text-gray-800 hover:text-green-500 mr-4 relative">
-                    <a href="./cart.html" class="text-gray-800 hover:text-green-500 mr-4 relative">
-                        <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
+        <nav class="hidden md:flex space-x-6">
+            <a href="/everything.html" class="text-gray-800 hover:text-green-500">Everything</a>
+            <a href="./groceries.html" class="text-gray-800 hover:text-green-500">Groceries</a>
+            <a href="/juice.html" class="text-gray-800 hover:text-green-500">Juice</a>
+            <a href="/about.html" class="text-gray-800 hover:text-green-500">About</a>
+            <a href="/contact.html" class="text-gray-800 hover:text-green-500">Contact</a>
+        </nav>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden fixed top-0 left-0 w-full h-full bg-white z-50 p-6">
+        <div class="flex justify-between items-center mb-6">
+            <div></div>
+            <button id="close-btn" class="text-gray-800 hover:text-red-500 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="mt-8 space-y-4">
+            <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Everything</a>
+            <a href="./groceries.html" class="block text-gray-800 hover:text-green-500 py-2">Groceries</a>
+            <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Juice</a>
+            <a href="#" class="block text-gray-800 hover:text-green-500 py-2">About</a>
+            <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Contact</a>
+        </nav>
+    </div>
+</header>
+<main class="container mx-auto py-8">
+    <h1 class="text-3xl font-bold mb-6 px-5">Shopping Cart</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="md:col-span-2">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-bold mb-4">Cart Items</h2>
+                <div class="divide-y divide-gray-200" id="cart-items">
+                    <!-- Cart items will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-bold mb-4">Order Summary</h2>
+                <div class="space-y-4">
+                    <div class="flex justify-between">
+                        <p class="text-gray-700">Subtotal</p>
+                        <p class="text-gray-900" id="subtotal">$0.00</p>
+                    </div>
+                    <div class="flex justify-between">
+                        <p class="text-gray-700">Shipping</p>
+                        <p class="text-gray-900">$4.99</p>
+                    </div>
+                    <div class="flex justify-between font-bold">
+                        <p>Total</p>
+                        <p id="total">$4.99</p>
+                    </div>
+                    <a href="./checkout.html">
+                        <button class="bg-green-500 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring focus:ring-purple-300 w-full transition duration-300 mt-6"> Proceed to Checkout </button>
                     </a>
-                    
-                    
-                </a>
-                <button id="hamburger-btn" class="text-gray-800 hover:text-green-500 focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                        <path d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-            <nav class="hidden md:flex space-x-6">
-                <a href="/everything.html" class="text-gray-800 hover:text-green-500">Everything</a>
-                <a href="./groceries.html" class="text-gray-800 hover:text-green-500">Groceries</a>
-                <a href="/juice.html" class="text-gray-800 hover:text-green-500">Juice</a>
-                <a href="/about.html" class="text-gray-800 hover:text-green-500">About</a>
-                <a href="/contact.html" class="text-gray-800 hover:text-green-500">Contact</a>
-            </nav>
-        </div>
-    
-        <div id="mobile-menu" class="md:hidden hidden fixed top-0 left-0 w-full h-full bg-white z-50 p-6">
-            <div class="flex justify-between items-center mb-6">
-                <div></div>
-                <button id="close-btn" class="text-gray-800 hover:text-red-500 focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                        <path d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <nav class="mt-8 space-y-4">
-                <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Everything</a>
-                <a href="./groceries.html" class="block text-gray-800 hover:text-green-500 py-2">Groceries</a>
-                <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Juice</a>
-                <a href="#" class="block text-gray-800 hover:text-green-500 py-2">About</a>
-                <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Contact</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class="container mx-auto py-8">
-        <h1 class="text-3xl font-bold mb-6 px-5">Shopping Cart</h1>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="md:col-span-2">
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h2 class="text-xl font-bold mb-4">Cart Items</h2>
-                    <div class="divide-y divide-gray-200">
-                        <div class="flex items-center py-4">
-                            <img src="https://via.placeholder.com/80x80" alt="Product Image" class="w-20 h-20 object-cover rounded-md">
-                            <div class="ml-4 flex-grow">
-                                <h3 class="text-lg font-semibold">Product Name</h3>
-                                <p class="text-gray-700">Price: $29.99</p>
-                                <div class="flex items-center mt-2">
-                                    <button class="bg-gray-200 text-gray-700 rounded-md px-2 py-1 hover:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-400">
-                                        -
-                                    </button>
-                                    <span class="mx-2">1</span>
-                                    <button class="bg-gray-200 text-gray-700 rounded-md px-2 py-1 hover:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-400">
-                                        +
-                                    </button>
-                                    <button class="ml-4 text-red-500 hover:text-red-700 focus:outline-none">
-                                        Remove
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Add more cart items here -->
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h2 class="text-xl font-bold mb-4">Order Summary</h2>
-                    <div class="space-y-4">
-                        <div class="flex justify-between">
-                            <p class="text-gray-700">Subtotal</p>
-                            <p class="text-gray-900">$29.99</p>
-                        </div>
-                        <div class="flex justify-between">
-                            <p class="text-gray-700">Shipping</p>
-                            <p class="text-gray-900">$4.99</p>
-                        </div>
-                        <div class="flex justify-between font-bold">
-                            <p>Total</p>
-                            <p>$34.98</p>
-                        </div>
-                        <a href="./checkout.html">
-                            <button class="bg-green-500 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring focus:ring-purple-300 w-full transition duration-300 mt-6">
-                                Proceed to Checkout
-                            </button>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
+<script>
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeBtn = document.getElementById('close-btn');
+    hamburgerBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+    });
+    closeBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+    });
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    function displayCartItems() {
+        const cartItemsContainer = document.getElementById('cart-items');
+        cartItemsContainer.innerHTML = '';
+        let subtotal = 0;
+        if (cart.length === 0) {
+            const emptyCartMessage = document.createElement('p');
+            emptyCartMessage.textContent = 'Your cart is empty';
+            emptyCartMessage.classList.add('empty-cart-message');
+            cartItemsContainer.appendChild(emptyCartMessage);
+        } else {
+            cart.forEach(item => {
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.classList.add('cart-item', 'flex', 'justify-between', 'items-center');
+                const itemDetails = document.createElement('div');
+                const itemName = document.createElement('h2');
+                itemName.textContent = item.name;
+                const itemPrice = document.createElement('p');
+                itemPrice.textContent = `$${item.price}`;
+                itemDetails.appendChild(itemName);
+                itemDetails.appendChild(itemPrice);
 
-    <script>
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeBtn = document.getElementById('close-btn');
-    
-        hamburgerBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-        });
-    
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-        });
-    </script>
+                const quantityWrapper = document.createElement('div');
+                quantityWrapper.classList.add('flex', 'items-center');
 
+                const decreaseButton = document.createElement('button');
+                decreaseButton.textContent = '-';
+                decreaseButton.classList.add('quantity-btn', 'bg-gray-200', 'text-gray-700', 'rounded-md', 'px-2', 'py-1', 'hover:bg-gray-300', 'focus:outline-none', 'focus:ring', 'focus:ring-gray-400');
+                decreaseButton.addEventListener('click', () => updateCartItemQuantity(item.name, item.quantity - 1));
+
+                const quantityInput = document.createElement('input');
+                quantityInput.type = 'number';
+                quantityInput.value = item.quantity || 1;
+                quantityInput.min = '1';
+                quantityInput.classList.add('quantity-input', 'w-16', 'mx-2', 'text-center');
+
+                const increaseButton = document.createElement('button');
+                increaseButton.textContent = '+';
+                increaseButton.classList.add('quantity-btn', 'bg-gray-200', 'text-gray-700', 'rounded-md', 'px-2', 'py-1', 'hover:bg-gray-300', 'focus:outline-none', 'focus:ring', 'focus:ring-gray-400');
+                increaseButton.addEventListener('click', () => updateCartItemQuantity(item.name, item.quantity + 1));
+
+                quantityWrapper.appendChild(decreaseButton);
+                quantityWrapper.appendChild(quantityInput);
+                quantityWrapper.appendChild(increaseButton);
+
+                subtotal += item.price * item.quantity;
+
+                const removeButton = document.createElement('button');
+                removeButton.classList.add('remove-btn');
+                removeButton.textContent = 'Remove';
+                removeButton.addEventListener('click', () => removeCartItem(item.name));
+
+                cartItemDiv.appendChild(itemDetails);
+                cartItemDiv.appendChild(quantityWrapper);
+                cartItemDiv.appendChild(removeButton);
+
+                cartItemsContainer.appendChild(cartItemDiv);
+            });
+        }
+        const subtotalElement = document.getElementById('subtotal');
+        const totalElement = document.getElementById('total');
+        subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+        totalElement.textContent = `$${(subtotal + 4.99).toFixed(2)}`;
+    }
+    function removeCartItem(name) {
+        const updatedCart = cart.filter(item => item.name !== name);
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        displayCartItems();
+    }
+    function updateCartItemQuantity(name, quantity) {
+        const updatedCart = cart.map(item => {
+            if (item.name === name) {
+                item.quantity = parseInt(quantity);
+            }
+            return item;
+        });
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        displayCartItems();
+    }
+    displayCartItems();
+</script>
 </body>
 </html>

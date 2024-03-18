@@ -24,6 +24,27 @@
             transform: scale(1.05);
             box-shadow: 0 0 10px rgba(0, 128, 0, 0.5);
         }
+
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+
+            .desktop-menu {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-menu {
+                display: none;
+            }
+
+            .desktop-menu {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body class="font-belgrano-regular">
@@ -72,10 +93,9 @@
             <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Contact</a>
         </div>
     </header>
-    
 
 <!-- HERO BANNER -->
-<div class="hero-banner flex flex-col justify-center items-center min-h-100v bg-gradient-to-b from-gray-100 to-gray-700">
+<div class="hero-banner flex flex-col justify-center items-center min-h-screen bg-gradient-to-b from-gray-100 to-gray-700">
     <div class="hero-content p-6 rounded-lg max-w-3xl">
         <h3 class="text-lg font-semibold text-gray-800 text-center">Best Quality Products</h3>
         <h1 class="text-4xl font-bold text-purple-800 my-4 text-center">Join The Organic Movement</h1>
@@ -90,38 +110,43 @@
 </div>
 <!-- HERO BANNER ENDS -->
 
+<!-- Add filter and sorting options -->
+<div class="flex flex-col md:flex-row justify-between items-center mb-6 mx-6 bg-gray-100 rounded-lg p-4">
+    <div class="filters mb-4 md:mb-0">
+        <h3 class="text-lg font-semibold mb-2 text-gray-800">Filter by:</h3>
+        <div class="flex items-center mb-2">
+            <label class="mr-2 text-gray-700">Category:</label>
+            <select id="category-filter" class="bg-white py-1 px-2 rounded border border-gray-300">
+                <option value="">All</option>
+                <option value="coffee">Coffee</option>
+                <option value="tea">Tea</option>
+                <!-- Add more categories as needed -->
+            </select>
+        </div>
+        <div class="flex items-center">
+            <label class="mr-2 text-gray-700">Price Range:</label>
+            <input type="range" id="price-filter" min="10" max="50" value="50" class="w-48">
+        </div>
+    </div>
+
+    <div class="sorting">
+        <h3 class="text-lg font-semibold mb-2 text-gray-800">Sort by:</h3>
+        <select id="sort-option" class="bg-white py-1 px-2 rounded border border-gray-300">
+            <option value="default">Default</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="popularity">Popularity</option>
+            <!-- Add more sorting options as needed -->
+        </select>
+    </div>
+</div>
+
 <!-- Best Selling Products Section -->
 <div class="mt-16 text-center text-gray-800">
     <h2 class="text-3xl font-semibold">Best Selling Products</h2>
-    <div class="flex flex-wrap justify-center mt-6 gap-10">
-        <a href="./productDescription.html">
-            <div class="product-card bg-white rounded-lg shadow-lg p-6 grocery-item">
-                <img src="./coffee.png" alt="Product Image" class="mx-auto mb-4 rounded-md w-64 h-64 object-cover md:w-48 md:h-auto">
-                <h3 class="text-lg font-semibold">Product Name</h3>
-                <p class="text-gray-700">Price: $XX.XX</p>
-            </div>
-        </a>
-        <a href="./productDescription.html">
-            <div class="product-card bg-white rounded-lg shadow-lg p-6 grocery-item">
-                <img src="./coffee.png" alt="Product Image" class="mx-auto mb-4 rounded-md w-64 h-64 object-cover md:w-48 md:h-auto">
-                <h3 class="text-lg font-semibold">Product Name</h3>
-                <p class="text-gray-700">Price: $XX.XX</p>
-            </div>
-        </a>
-        <a href="./productDescription.html">
-            <div class="product-card bg-white rounded-lg shadow-lg p-6 grocery-item">
-                <img src="./coffee.png" alt="Product Image" class="mx-auto mb-4 rounded-md w-64 h-64 object-cover md:w-48 md:h-auto">
-                <h3 class="text-lg font-semibold">Product Name</h3>
-                <p class="text-gray-700">Price: $XX.XX</p>
-            </div>
-        </a>
-        <a href="./productDescription.html">
-            <div class="product-card bg-white rounded-lg shadow-lg p-6 grocery-item">
-                <img src="./coffee.png" alt="Product Image" class="mx-auto mb-4 rounded-md w-64 h-64 object-cover md:w-48 md:h-auto">
-                <h3 class="text-lg font-semibold">Product Name</h3>
-                <p class="text-gray-700">Price: $XX.XX</p>
-            </div>
-        </a>
+    <!-- Product container -->
+    <div class="flex flex-wrap justify-center mt-6 gap-4">
+        <div class="w-full md:w-1/2 lg:w-1/4 px-2" id="product-container"></div>
     </div>
 </div>
 <!-- Best Selling Products Section Ends -->
@@ -131,35 +156,8 @@
 <!-- Trending Product Section -->
 <div class="mt-16 text-center text-gray-800">
     <h2 class="text-3xl font-semibold">Trending Products</h2>
-    <div class="flex flex-wrap justify-center mt-6 gap-10">
-        <a href="./productDescription.html">
-            <div class="product-card bg-white rounded-lg shadow-lg p-6 grocery-item">
-                <img src="./coffee.png" alt="Product Image" class="mx-auto mb-4 rounded-md w-64 h-64 object-cover md:w-48 md:h-auto">
-                <h3 class="text-lg font-semibold">Product Name</h3>
-                <p class="text-gray-700">Price: $XX.XX</p>
-            </div>
-        </a>
-        <a href="./productDescription.html">
-            <div class="product-card bg-white rounded-lg shadow-lg p-6 grocery-item">
-                <img src="./coffee.png" alt="Product Image" class="mx-auto mb-4 rounded-md w-64 h-64 object-cover md:w-48 md:h-auto">
-                <h3 class="text-lg font-semibold">Product Name</h3>
-                <p class="text-gray-700">Price: $XX.XX</p>
-            </div>
-        </a>
-        <a href="./productDescription.html">
-            <div class="product-card bg-white rounded-lg shadow-lg p-6 grocery-item">
-                <img src="./coffee.png" alt="Product Image" class="mx-auto mb-4 rounded-md w-64 h-64 object-cover md:w-48 md:h-auto">
-                <h3 class="text-lg font-semibold">Product Name</h3>
-                <p class="text-gray-700">Price: $XX.XX</p>
-            </div>
-        </a>
-        <a href="./productDescription.html">
-            <div class="product-card bg-white rounded-lg shadow-lg p-6 grocery-item">
-                <img src="./coffee.png" alt="Product Image" class="mx-auto mb-4 rounded-md w-64 h-64 object-cover md:w-48 md:h-auto">
-                <h3 class="text-lg font-semibold">Product Name</h3>
-                <p class="text-gray-700">Price: $XX.XX</p>
-            </div>
-        </a>
+    <div class="flex flex-wrap justify-center mt-6 gap-4">
+        <div class="w-full md:w-1/2 lg:w-1/4 px-2" id="trending-product-container"></div>
     </div>
 </div>
 <!-- Trending Product Section Ends -->
@@ -182,6 +180,111 @@
     closeBtn.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
     });
+
+    // Store product data
+    const products = [
+        { id: 1, name: 'Expresso', category: 'coffee', price: 10, popularity: 5 },
+        { id: 2, name: 'Latte', category: 'tea', price: 30, popularity: 8 },
+        { id: 3, name: 'Americano', category: 'coffee', price: 40, popularity: 8 },
+        { id: 4, name: 'Coffee Black', category: 'tea', price: 50, popularity: 10 },
+    ];
+
+    // Filter products
+    function filterProducts() {
+        const categoryFilter = document.getElementById('category-filter').value;
+        const priceFilter = document.getElementById('price-filter').value;
+
+        const filteredProducts = products.filter(product => {
+            const categoryMatch = categoryFilter === '' || product.category === categoryFilter;
+            const priceMatch = product.price <= priceFilter;
+            return categoryMatch && priceMatch;
+        });
+
+        return filteredProducts;
+    }
+
+    // Sort products
+    function sortProducts(products, sortOption) {
+        switch (sortOption) {
+            case 'price-asc':
+                return products.sort((a, b) => a.price - b.price);
+            case 'price-desc':
+                return products.sort((a, b) => b.price - a.price);
+            case 'popularity':
+                return products.sort((a, b) => b.popularity - a.popularity);
+            default:
+                return products;
+        }
+    }
+
+    // Update product display
+    function updateProductDisplay(products, containerID) {
+        const productContainer = document.getElementById(containerID);
+        productContainer.innerHTML = '';
+
+        products.forEach(product => {
+            const productCard = document.createElement('a');
+            productCard.href = './productDescription.html';
+            productCard.classList.add('grocery-item', 'block', 'mb-4');
+            productCard.innerHTML = `
+                <div class="product-card bg-white rounded-lg shadow-lg p-6">
+                    <img src="./coffee.png" alt="Product Image" class="mx-auto mb-4 rounded-md w-64 h-64 object-cover md:w-48 md:h-auto">
+                    <h3 class="text-lg font-semibold">${product.name}</h3>
+                    <p class="text-gray-700">Price: $${product.price}</p>
+                </div>
+            `;
+            productContainer.appendChild(productCard);
+        });
+    }
+
+    // Add event listeners
+    document.getElementById('category-filter').addEventListener('change', () => {
+        const filteredProducts = filterProducts();
+        const sortOption = document.getElementById('sort-option').value;
+        const sortedProducts = sortProducts(filteredProducts, sortOption);
+        updateProductDisplay(sortedProducts, 'product-container');
+        updateProductDisplay(sortedProducts, 'trending-product-container');
+    });
+
+    document.getElementById('price-filter').addEventListener('input', () => {
+        const filteredProducts = filterProducts();
+        const sortOption = document.getElementById('sort-option').value;
+        const sortedProducts = sortProducts(filteredProducts, sortOption);
+        updateProductDisplay(sortedProducts, 'product-container');
+        updateProductDisplay(sortedProducts, 'trending-product-container');
+    });
+
+    document.getElementById('sort-option').addEventListener('change', () => {
+        const filteredProducts = filterProducts();
+        const sortOption = document.getElementById('sort-option').value;
+        const sortedProducts = sortProducts(filteredProducts, sortOption);
+        updateProductDisplay(sortedProducts, 'product-container');
+        updateProductDisplay(sortedProducts, 'trending-product-container');
+    });
+
+    // Initial product display
+    updateProductDisplay(products, 'product-container');
+    updateProductDisplay(products, 'trending-product-container');
+
+
+    // Add click event listener to each product card
+const productCards = document.querySelectorAll('.grocery-item');
+productCards.forEach(card => {
+  card.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent the default link behavior
+
+    // Get the product data from the clicked card
+    const productName = card.querySelector('h3').textContent;
+    const productPrice = parseFloat(card.querySelector('p').textContent.replace('Price: $', ''));
+
+    // Construct the URL with product data as parameters
+    const productDescriptionUrl = `productDescription.html?name=${encodeURIComponent(productName)}&price=${encodeURIComponent(productPrice)}`;
+
+    // Navigate to the product description page with the product data
+    window.location.href = productDescriptionUrl;
+  });
+});
+
 </script>
 
 </body>
