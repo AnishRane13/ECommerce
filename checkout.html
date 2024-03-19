@@ -15,12 +15,10 @@
         body {
             font-family: 'Playfair Display', serif;
         }
-
         /* Animation for the header logo */
         /* .logo-animation {
             animation: pulse 2s infinite;
         } */
-
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -32,24 +30,20 @@
                 transform: scale(1);
             }
         }
-
         /* Animation for the form inputs */
         .input-animation {
             transition: all 0.3s ease-in-out;
         }
-
         .input-animation:focus {
             transform: scale(1.05);
             box-shadow: 0 0 10px rgba(0, 128, 0, 0.5);
         }
-
         /* Animation for the "Place Order" button */
         .button-animation {
             transition: all 0.3s ease-in-out;
             position: relative;
             overflow: hidden;
         }
-
         .button-animation::before {
             content: '';
             position: absolute;
@@ -63,7 +57,6 @@
             opacity: 0;
             transition: all 0.3s ease-in-out;
         }
-
         .button-animation:hover::before {
             width: 200%;
             height: 200%;
@@ -72,152 +65,128 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-green-100 to-teal-200">
-
-        <header class="bg-white py-4 px-6 flex justify-between items-center">
-            <div class="flex items-center">
-                <a href="./index.html">
-                    <img src="https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2019/06/organic-store-logo5.svg" alt="Organic Shop" class="h-12">
-                </a>
-            </div>
-            <div class="flex items-center">
-                <div class="md:hidden flex items-center">
-                    <a href="./cart.html" class="text-gray-800 hover:text-green-500 mr-4 relative">
-                        <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
-                    </a>
-                    <button id="hamburger-btn" class="text-gray-800 hover:text-green-500 focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-                <nav class="hidden md:flex space-x-6">
-                    <a href="/everything.html" class="text-gray-800 hover:text-green-500">Everything</a>
-                    <a href="./groceries.html" class="text-gray-800 hover:text-green-500">Groceries</a>
-                    <a href="/juice.html" class="text-gray-800 hover:text-green-500">Juice</a>
-                    <a href="/about.html" class="text-gray-800 hover:text-green-500">About</a>
-                    <a href="/contact.html" class="text-gray-800 hover:text-green-500">Contact</a>
-                </nav>
-            </div>
-        
-            <div id="mobile-menu" class="md:hidden hidden fixed top-0 left-0 w-full h-2/5 bg-white z-50 p-6">
-                <div class="flex justify-between items-center mb-6">
-                    <div></div>
-                    <button id="close-btn" class="text-gray-800 hover:text-red-500 focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-                <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Everything</a>
-                <a href="./groceries.html" class="block text-gray-800 hover:text-green-500 py-2">Groceries</a>
-                <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Juice</a>
-                <a href="#" class="block text-gray -800 hover:text-green-500 py-2">About</a>
-                <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Contact</a>
-            </div>
-        </header>
-
-    <div class="max-w-4xl mx-auto py-12">
-        <h2 class="text-3xl font-bold mb-6 text-center text-gray-800 ">Checkout</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-                <h3 class="text-xl font-semibold mb-4 text-gray-800 ml-4">Billing Details</h3>
-                <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl">
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-semibold mb-2" for="firstName">First Name</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="firstName" type="text" placeholder="Enter your first name">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-semibold mb-2" for="lastName">Last Name</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="lastName" type="text" placeholder="Enter your last name">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-semibold mb-2" for="country">Country</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="country" type="text" placeholder="Enter your country">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-semibold mb-2" for="streetAddress">Street Address</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="streetAddress" type="text" placeholder="Enter your street address">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-semibold mb-2" for="city">Town/City</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="city" type="text" placeholder="Enter your city">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-semibold mb-2" for="state">State</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="state" type="text" placeholder="Enter your state">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-semibold mb-2" for="zipCode">Pin Code</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="zipCode" type="text" placeholder="Enter your pin code">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-semibold mb-2" for="phone">Phone</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="phone" type="tel" placeholder="Enter your phone number">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 font-semibold mb-2" for="email">Email Address</label>
-                        <input class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 input-animation" id="email" type="email" placeholder="Enter your email address">
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h3 class="text-xl font-semibold mb-4 text-gray-800 ml-4">Your Order</h3>
-                <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl">
-                    <table class="w-full">
-                        <thead>
-                            <tr>
-                                <th class="text-left pb-4 text-gray-700 font-semibold">Product</th>
-                                <th class="text-right pb-4 text-gray-700 font-semibold">Subtotal</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="text-left text-gray-800 py-2">Product 1</td>
-                                <td class="text-right text-gray-800 py-2">$10.00</td>
-                            </tr>
-                            <tr>
-                                <td class="text-left text-gray-800 py-2">Product 2</td>
-                                <td class="text-right text-gray-800 py-2">$15.00</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th class="text-left pt-4 text-gray-800 font-semibold">Total</th>
-                                <th class="text-right pt-4 text-gray-800 font-semibold">$25.00</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                    <div class="mt-6">
-                        <div class="flex items-center mb-4">
-                            <input id="cod" type="radio" name="paymentMethod" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded transition-all duration-300 hover:scale-110">
-                            <label for="cod" class="ml-2 text-gray-700 font-semibold">Cash on Delivery</label>
-                        </div>
-                        <div class="flex items-center">
-                            <input id="online" type="radio" name="paymentMethod" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded transition-all duration-300 hover:scale-110">
-                            <label for="online" class="ml-2 text-gray-700 font-semibold">Online Payment</label>
-                        </div>
-                    </div>
-                    <button class="bg-green-500 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring focus:ring-purple-300 mt-5">Place Order</button>
-                </div>
-            </div>
+    <header class="bg-white py-4 px-6 flex justify-between items-center">
+        <div class="flex items-center">
+            <a href="./index.html">
+                <img src="https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2019/06/organic-store-logo5.svg" alt="Organic Shop" class="h-12">
+            </a>
         </div>
-    </div>
-
-
+        <div class="flex items-center">
+            <div class="md:hidden flex items-center">
+                <a href="./cart.html" class="text-gray-800 hover:text-green-500 mr-4 relative">
+                    <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                </a>
+                <button id="hamburger-btn" class="text-gray-800 hover:text-green-500 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="/everything.html" class="text-gray-800 hover:text-green-500">Everything</a>
+                <a href="./groceries.html" class="text-gray-800 hover:text-green-500">Groceries</a>
+                <a href="/juice.html" class="text-gray-800 hover:text-green-500">Juice</a>
+                <a href="/about.html" class="text-gray-800 hover:text-green-500">About</a>
+                <a href="/contact.html" class="text-gray-800 hover:text-green-500">Contact</a>
+            </nav>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden fixed top-0 left-0 w-full h-2/5 bg-white z-50 p-6">
+            <div class="flex justify-between items-center mb-6">
+                <div></div>
+                <button id="close-btn" class="text-gray-800 hover:text-red-500 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Everything</a>
+            <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Groceries</a>
+            <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Juice</a>
+            <a href="#" class="block text-gray-800 hover:text-green-500 py-2">About</a>
+            <a href="#" class="block text-gray-800 hover:text-green-500 py-2">Contact</a>
+        </div>
+    </header>
+    <main class="container mx-auto py-16">
+        <section class="checkout-container bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-3xl text-gray-800 mb-8">Checkout</h1>
+            <table class="order-summary-table w-full mb-8">
+                <thead>
+                    <tr>
+                        <th class="text-left text-gray-800 font-semibold py-2">Product</th>
+                        <th class="text-right text-gray-800 font-semibold py-2">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Cart items will be dynamically added here -->
+                </tbody>
+            </table>
+            <div class="flex justify-end">
+                <div class="w-1/2">
+                    <h2 class="text-2xl font-semibold text-right text-gray-800 mb-4">Total:</h2>
+                    <p id="total" class="text-3xl font-semibold text-right text-green-600"></p>
+                </div>
+            </div>
+            <div class="mt-8">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Billing Details</h2>
+                <form class="flex flex-col space-y-4" id="checkout-form">
+                    <!-- Your form inputs here -->
+                    <button class="button-animation bg-green-600 text-white py-3 px-6 rounded-md hover:bg-green-700 focus:outline-none focus:bg-green-700" type="submit">Place Order</button>
+                </form>
+            </div>
+        </section>
+    </main>
     <script>
+        window.onload = function() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const total = localStorage.getItem('total') || '0.00';
+
+            const orderSummaryTable = document.querySelector('.order-summary-table tbody');
+            orderSummaryTable.innerHTML = '';
+
+            cartItems.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="text-left text-gray-800 py-2">${item.name}</td>
+                    <td class="text-right text-gray-800 py-2">$${(item.price * item.quantity).toFixed(2)}</td>
+                `;
+                orderSummaryTable.appendChild(row);
+            });
+
+            document.getElementById('total').textContent = `$${total}`;
+
+            // Add event listener to the form
+            const checkoutForm = document.getElementById('checkout-form');
+            checkoutForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Display a confirmation message
+                const confirmationMessage = document.createElement('div');
+                confirmationMessage.classList.add('bg-green-100', 'border', 'border-green-400', 'text-green-700', 'px-4', 'py-3', 'rounded', 'mb-4');
+                confirmationMessage.textContent = 'Your order has been placed successfully!';
+
+                const checkoutContainer = document.querySelector('.checkout-container');
+                checkoutContainer.insertAdjacentElement('beforebegin', confirmationMessage);
+
+                // Reset the form or perform any other actions after order placement
+                checkoutForm.reset();
+            });
+        };
+
+
         const hamburgerBtn = document.getElementById('hamburger-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeBtn = document.getElementById('close-btn');
-    
-        hamburgerBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-        });
-    
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-        });
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeBtn = document.getElementById('close-btn');
+
+    hamburgerBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+    });
+
     </script>
 </body>
 </html>

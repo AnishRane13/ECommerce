@@ -144,69 +144,75 @@
         mobileMenu.classList.add('hidden');
     });
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
     function displayCartItems() {
-        const cartItemsContainer = document.getElementById('cart-items');
-        cartItemsContainer.innerHTML = '';
-        let subtotal = 0;
-        if (cart.length === 0) {
-            const emptyCartMessage = document.createElement('p');
-            emptyCartMessage.textContent = 'Your cart is empty';
-            emptyCartMessage.classList.add('empty-cart-message');
-            cartItemsContainer.appendChild(emptyCartMessage);
-        } else {
-            cart.forEach(item => {
-                const cartItemDiv = document.createElement('div');
-                cartItemDiv.classList.add('cart-item', 'flex', 'justify-between', 'items-center');
-                const itemDetails = document.createElement('div');
-                const itemName = document.createElement('h2');
-                itemName.textContent = item.name;
-                const itemPrice = document.createElement('p');
-                itemPrice.textContent = `$${item.price}`;
-                itemDetails.appendChild(itemName);
-                itemDetails.appendChild(itemPrice);
+    const cartItemsContainer = document.getElementById('cart-items');
+    cartItemsContainer.innerHTML = '';
+    let subtotal = 0;
+    if (cart.length === 0) {
+        const emptyCartMessage = document.createElement('p');
+        emptyCartMessage.textContent = 'Your cart is empty';
+        emptyCartMessage.classList.add('empty-cart-message');
+        cartItemsContainer.appendChild(emptyCartMessage);
+    } else {
+        cart.forEach(item => {
+            const cartItemDiv = document.createElement('div');
+            cartItemDiv.classList.add('cart-item', 'flex', 'justify-between', 'items-center');
+            const itemDetails = document.createElement('div');
+            const itemName = document.createElement('h2');
+            itemName.textContent = item.name;
+            const itemPrice = document.createElement('p');
+            itemPrice.textContent = `$${item.price}`;
+            itemDetails.appendChild(itemName);
+            itemDetails.appendChild(itemPrice);
 
-                const quantityWrapper = document.createElement('div');
-                quantityWrapper.classList.add('flex', 'items-center');
+            const quantityWrapper = document.createElement('div');
+            quantityWrapper.classList.add('flex', 'items-center');
 
-                const decreaseButton = document.createElement('button');
-                decreaseButton.textContent = '-';
-                decreaseButton.classList.add('quantity-btn', 'bg-gray-200', 'text-gray-700', 'rounded-md', 'px-2', 'py-1', 'hover:bg-gray-300', 'focus:outline-none', 'focus:ring', 'focus:ring-gray-400');
-                decreaseButton.addEventListener('click', () => updateCartItemQuantity(item.name, item.quantity - 1));
+            const decreaseButton = document.createElement('button');
+            decreaseButton.textContent = '-';
+            decreaseButton.classList.add('quantity-btn', 'bg-gray-200', 'text-gray-700', 'rounded-md', 'px-2', 'py-1', 'hover:bg-gray-300', 'focus:outline-none', 'focus:ring', 'focus:ring-gray-400');
+            decreaseButton.addEventListener('click', () => updateCartItemQuantity(item.name, item.quantity - 1));
 
-                const quantityInput = document.createElement('input');
-                quantityInput.type = 'number';
-                quantityInput.value = item.quantity || 1;
-                quantityInput.min = '1';
-                quantityInput.classList.add('quantity-input', 'w-16', 'mx-2', 'text-center');
+            const quantityInput = document.createElement('input');
+            quantityInput.type = 'number';
+            quantityInput.value = item.quantity || 1;
+            quantityInput.min = '1';
+            quantityInput.classList.add('quantity-input', 'w-16', 'mx-2', 'text-center');
 
-                const increaseButton = document.createElement('button');
-                increaseButton.textContent = '+';
-                increaseButton.classList.add('quantity-btn', 'bg-gray-200', 'text-gray-700', 'rounded-md', 'px-2', 'py-1', 'hover:bg-gray-300', 'focus:outline-none', 'focus:ring', 'focus:ring-gray-400');
-                increaseButton.addEventListener('click', () => updateCartItemQuantity(item.name, item.quantity + 1));
+            const increaseButton = document.createElement('button');
+            increaseButton.textContent = '+';
+            increaseButton.classList.add('quantity-btn', 'bg-gray-200', 'text-gray-700', 'rounded-md', 'px-2', 'py-1', 'hover:bg-gray-300', 'focus:outline-none', 'focus:ring', 'focus:ring-gray-400');
+            increaseButton.addEventListener('click', () => updateCartItemQuantity(item.name, item.quantity + 1));
 
-                quantityWrapper.appendChild(decreaseButton);
-                quantityWrapper.appendChild(quantityInput);
-                quantityWrapper.appendChild(increaseButton);
+            const removeButton = document.createElement('button');
+            removeButton.classList.add('remove-btn');
+            removeButton.textContent = 'Remove';
+            removeButton.addEventListener('click', () => removeCartItem(item.name));
 
-                subtotal += item.price * item.quantity;
+            quantityWrapper.appendChild(decreaseButton);
+            quantityWrapper.appendChild(quantityInput);
+            quantityWrapper.appendChild(increaseButton);
 
-                const removeButton = document.createElement('button');
-                removeButton.classList.add('remove-btn');
-                removeButton.textContent = 'Remove';
-                removeButton.addEventListener('click', () => removeCartItem(item.name));
+            subtotal += item.price * item.quantity;
 
-                cartItemDiv.appendChild(itemDetails);
-                cartItemDiv.appendChild(quantityWrapper);
-                cartItemDiv.appendChild(removeButton);
+            cartItemDiv.appendChild(itemDetails);
+            cartItemDiv.appendChild(quantityWrapper);
+            cartItemDiv.appendChild(removeButton);
 
-                cartItemsContainer.appendChild(cartItemDiv);
-            });
-        }
-        const subtotalElement = document.getElementById('subtotal');
-        const totalElement = document.getElementById('total');
-        subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
-        totalElement.textContent = `$${(subtotal + 4.99).toFixed(2)}`;
+            cartItemsContainer.appendChild(cartItemDiv);
+        });
     }
+    const subtotalElement = document.getElementById('subtotal');
+    const totalElement = document.getElementById('total');
+    subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+    totalElement.textContent = `$${(subtotal + 4.99).toFixed(2)}`;
+
+    // Store cart items and total in local storage
+    localStorage.setItem('cartItems', JSON.stringify(cart));
+    localStorage.setItem('total', (subtotal + 4.99).toFixed(2));
+}
+
     function removeCartItem(name) {
         const updatedCart = cart.filter(item => item.name !== name);
         localStorage.setItem('cart', JSON.stringify(updatedCart));
@@ -223,7 +229,6 @@
         displayCartItems();
     }
     displayCartItems();
-    console.log("Done");
 </script>
 </body>
 </html>
